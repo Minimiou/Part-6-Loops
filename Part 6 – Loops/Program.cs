@@ -11,9 +11,9 @@ namespace Part_6___Loops
         static void Main(string[] args)
         {
             //Prompter();
-            //PercentPassing();  (I don't understand)
+            PercentPassing();
             //OddSum();
-            RandomNumbers();
+            //RandomNumbers();
         }
 
         static void Prompter()
@@ -52,47 +52,56 @@ namespace Part_6___Loops
             Console.WriteLine("Thank you!\n");
             Console.ReadLine();
         }
+
         static void PercentPassing()
-        {       
-            //string numAsString;
-            //double num;
-            //double num2;
-            //double num3;
-            //double num4;
-            //double num5;
-            //int percentage;
-            //int i;
+        {
+            string numOfPercentAsString;
+            int numOfPercent;
+            string inputAsString;
+            double input;
+            int passes;
+            int fails;
+            double output;
 
-            //Console.WriteLine("Percent Passing\n");
+ 
+            passes = 0;
 
-            //Console.WriteLine("Please enter a score:");
-            //numAsString = Console.ReadLine();
-            //num = Convert.ToDouble(numAsString);
-            //for (i = 1; i <= 4; i++)
-            //{ 
-            //    Console.WriteLine("Another one:");
-            //    while ( i == 1)
-            //    {
-            //        numAsString = Console.ReadLine();
-            //        num2 = Convert.ToDouble(numAsString);
-            //    }
-            //    while (i == 2)
-            //    {
-            //        numAsString = Console.ReadLine();
-            //        num3 = Convert.ToDouble(numAsString);
-            //    }
-            //    while (i == 3)
-            //    {
-            //        numAsString = Console.ReadLine();
-            //        num4 = Convert.ToDouble(numAsString);
-            //    }
-            //    while (i == 4)
-            //    {
-            //        numAsString = Console.ReadLine();
-            //        num5 = Convert.ToDouble(numAsString);
-            //    }
-            //    percentage = (2 / 10) * 100
-            //}
+            Console.WriteLine("Please type in the amount of scores you want to enter:");
+            numOfPercentAsString = Console.ReadLine();
+
+            if (int.TryParse(numOfPercentAsString, out numOfPercent))
+            {
+                for (int i = 1; i <= numOfPercent; i++)
+                {
+                    Console.WriteLine("Please enter a score:");
+                    inputAsString = Console.ReadLine();
+
+                    if (double.TryParse(inputAsString, out input))
+                    {
+                        if (input >= 70)
+                        {
+                            passes += 1;
+                        }
+                        else if (input < 0)
+                        {
+                            Console.WriteLine("That is not a valid score:");
+                        }
+
+                    }
+
+                }
+            }
+
+            else
+            {
+                
+                Console.WriteLine("Please type in the amount of scores you want to enter:");
+                numOfPercentAsString = Console.ReadLine();
+            }
+            Console.WriteLine(passes);
+            output = ((double)passes / numOfPercent) * 100;
+            Console.WriteLine($"{output}% out of the {numOfPercent} scores were above 70.");
+            Console.ReadLine();
         }
         static void OddSum()
         {
@@ -134,7 +143,7 @@ namespace Part_6___Loops
             
             Console.WriteLine("Enter a number:");
             input = Console.ReadLine();
-            //rando = num.Next();
+
 
             while (!Int32.TryParse(input, out min))
             {
