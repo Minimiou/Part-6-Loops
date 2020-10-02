@@ -69,6 +69,14 @@ namespace Part_6___Loops
             Console.WriteLine("Please type in the amount of scores you want to enter:");
             numOfPercentAsString = Console.ReadLine();
 
+            
+            while(!int.TryParse(numOfPercentAsString, out numOfPercent))
+            {
+                
+                Console.WriteLine("Please type in the amount of scores you want to enter:");
+                numOfPercentAsString = Console.ReadLine();
+
+            }
             if (int.TryParse(numOfPercentAsString, out numOfPercent))
             {
                 for (int i = 1; i <= numOfPercent; i++)
@@ -92,15 +100,10 @@ namespace Part_6___Loops
                 }
             }
 
-            else
-            {
-                
-                Console.WriteLine("Please type in the amount of scores you want to enter:");
-                numOfPercentAsString = Console.ReadLine();
-            }
-            Console.WriteLine(passes);
+
             output = ((double)passes / numOfPercent) * 100;
-            Console.WriteLine($"{output}% out of the {numOfPercent} scores were above 70.");
+            
+            Console.WriteLine($"{Math.Round(output, 2)}% out of the {numOfPercent} scores were above 70.");
             Console.ReadLine();
         }
         static void OddSum()
